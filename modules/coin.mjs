@@ -38,7 +38,7 @@ export function coinFlip() {
  */
 export function coinFlips(flips) {
   let out = Array(flips).fill(null);
-  let desc = {heads: 0, tails: 0};
+  let desc = {tails: 0, heads: 0};
   if (flips >= 1) {
     for (let i = 0; i < flips; i++) {
       let flip = coinFlip();
@@ -48,8 +48,9 @@ export function coinFlips(flips) {
     return [out, desc];
   } else {
     let flip = coinFlip();
+    out[0] = flip;
     flip == 'heads' ? desc.heads = 1 : desc.tails = 1;
-    return desc;
+    return [out, desc];
   }
 }
 
