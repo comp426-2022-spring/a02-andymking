@@ -48,9 +48,8 @@ export function coinFlips(flips) {
     return [out, desc];
   } else {
     let flip = coinFlip();
-    out[0] = flip;
     flip == 'heads' ? desc.heads = 1 : desc.tails = 1;
-    return [out, desc];
+    return desc;
   }
 }
 
