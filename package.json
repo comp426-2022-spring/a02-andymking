@@ -1,0 +1,26 @@
+{
+  "name": "coinflip",
+  "version": "0.0.1",
+  "description": "A simple package that emulates coin flips.",
+  "main": "flip.js",
+  "scripts": {
+    "test": "echo \\\"Error: no test specified\\\" && exit 1",
+    "flip": "node flip.js",
+    "flips": "node flips.js",
+    "guess-flip": "node guess-flip.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/comp426-2022-spring/a02-andymking.git"
+  },
+  "author": "Andrew M. King",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/comp426-2022-spring/a02-andymking/issues"
+  },
+  "homepage": "https://github.com/comp426-2022-spring/a02-andymking#readme",
+  "type": "module",
+  "dependencies": {
+    "minimist": "^1.2.5"
+  }
+}

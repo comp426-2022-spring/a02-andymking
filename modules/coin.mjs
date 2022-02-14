@@ -14,8 +14,8 @@
  * 
  */
 
-function coinFlip() {
-
+export function coinFlip() {
+  return Math.random() > 0.5 ? 'heads' : 'tails';
 }
 
 /** Multiple coin flips
@@ -36,9 +36,22 @@ function coinFlip() {
       'tails', 'heads'
     ]
  */
-
-function coinFlips(flips) {
-
+export function coinFlips(flips) {
+  let out = Array(flips).fill(null);
+  let desc = {heads: 0, tails: 0};
+  if (flips >= 1) {
+    for (let i = 0; i < flips; i++) {
+      let flip = coinFlip();
+      flip == 'heads' ? desc.heads += 1 : desc.tails += 1;
+      out[i] = flip;
+    }
+    return [out, desc];
+  } else {
+    let flip = coinFlip();
+    out[0] = flip;
+    flip == 'heads' ? desc.heads = 1 : desc.tails = 1;
+    return [out, desc];
+  }
 }
 
 /** Count multiple flips
@@ -54,8 +67,12 @@ function coinFlips(flips) {
  * @returns {{ heads: number, tails: number }}
  */
 
-function countFlips(array) {
-
+export function countFlips(array) {
+  let desc = {heads: 0, tails: 0};
+  for(let i = 0; i < array.length; i++) {
+    array[i] == 'heads' ? desc.heads += 1 : desc.tails += 1;
+  }
+  return desc;
 }
 
 /** Flip a coin!
@@ -69,8 +86,14 @@ function countFlips(array) {
  * returns: { call: 'tails', flip: 'heads', result: 'lose' }
  */
 
-function flipACoin(call) {
-
+export function flipACoin(call) {
+  if (call != 'heads' && call != 'tails') {
+    return 'Error: no input.\nUsage: node guess-flip --call=[heads|tails]';
+  } else {
+    let flip = coinFlip();
+    let result = flip == call ? 'win' : 'lose';
+    return (`call: \'${call}\', flip: \'${flip}\', result: \'${result}\'`)
+  }
 }
 
 
