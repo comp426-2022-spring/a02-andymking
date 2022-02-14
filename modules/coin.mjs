@@ -38,19 +38,15 @@ export function coinFlip() {
  */
 export function coinFlips(flips) {
   let out = Array(flips).fill(null);
-  let desc = {tails: 0, heads: 0};
   if (flips >= 1) {
     for (let i = 0; i < flips; i++) {
       let flip = coinFlip();
-      flip == 'heads' ? desc.heads += 1 : desc.tails += 1;
       out[i] = flip;
     }
-    return [out, desc];
   } else {
-    let flip = coinFlip();
-    flip == 'heads' ? desc.heads = 1 : desc.tails = 1;
-    return desc;
+    out[0] = coinFlip();
   }
+  return out;
 }
 
 /** Count multiple flips
@@ -67,7 +63,7 @@ export function coinFlips(flips) {
  */
 
 export function countFlips(array) {
-  let desc = {heads: 0, tails: 0};
+  let desc = {tails: 0, heads: 0};
   for(let i = 0; i < array.length; i++) {
     array[i] == 'heads' ? desc.heads += 1 : desc.tails += 1;
   }
