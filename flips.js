@@ -6,9 +6,11 @@ const args = minimist(process.argv);
 if (!args['number']) {
     let flip = coinFlip();
     if (flip == 'heads') {
+        console.log(['heads']);
         console.log({heads: 1});
     }
     else {
+        console.log(['tails']);
         console.log({tails: 1});
     }
 }
